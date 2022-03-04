@@ -19,11 +19,9 @@ class HelloWorld < Prism::Component
       main([
         h1("QR Code Generator"),
         label(".input", [
-          # p(".input-prompt", "Enter url:"),
           input(".input_field", onInput: call(:url=).with_target_data(:value)),
           span('.input_label', "Enter url")
         ]),
-        # div("Hello, #{url} :)", {attrs: {class: "Hello"}}),
         div(".button-view", [
           button('.generate', {:onclick => call(:qr)}, [text("Generate QR code")]),
           button("Download", {attrs: {id: "download", style: "opacity: 0%;"}}),
@@ -31,7 +29,6 @@ class HelloWorld < Prism::Component
         p(".status", "#{status}"),
         p("#{qr_code}", {attrs: {id: "qr-code"}}),
         canvas({attrs: {id: "qr-code-canvas", width: "500", height: "500"}})
-        # img({attrs: {src: "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}})
       ], {attrs: {class: 'card', id: "main-content"}})
     ])
   end
