@@ -1,0 +1,7 @@
+[submodule "prism"]
+    path = prism
+    url = https://github.com/prism-rb/prism
+
+[submodule "rqrcode_core"]
+    path = rqrcode_core
+    url = https://github.com/whomwah/rqrcode_core
