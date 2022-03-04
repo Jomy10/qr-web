@@ -1,0 +1,74 @@
+@import url('https://rsms.me/inter/inter.css');
+
+:root {  
+  --size-bezel: .5rem;
+  --size-radius: 4px;
+
+  // font-size: calc(.6rem + .4vw);
+  // font-weight: 300;
+  // padding: 0 calc(var(--size-bezel) * 3);
+}
+.card {
+  background: var(--color-background-card);
+  padding: calc(4 * var(--size-bezel));
+  margin-top: calc(4 * var(--size-bezel));
+  border-radius: var(--size-radius);
+  border: 3px solid var(--color-shadow, currentColor);
+  box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
+  
+  &--inverted {
+    --color-background-card: var(--color-dark);
+    color: var(--color-light);
+    --color-shadow: var(--color-accent);
+  }
+  
+  &--accent {
+    --color-background-card: var(--color-signal);
+    --color-accent: var(--color-light);
+    color: var(--color-dark);
+  }
+  
+  *:first-child {
+    margin-top: 0;
+  }
+}
+
+.input {
+  position: relative;
+  
+  &_label {
+    position: absolute;
+    left: 3px;
+    top: -8px;
+    padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+    margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+    white-space: nowrap;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    background: var(--color-background-card);
+    transition: background 120ms ease-in;
+    transition: transform 120ms ease-in;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: left;
+  }
+  &_field {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 3px solid currentColor;
+    padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+    color: currentColor;
+    background: transparent;
+    border-radius: var(--size-radius);
+    
+    &:focus,
+    &:not(:placeholder-shown) {
+      & + .input_label {
+        transform: translate(.25rem, -50%) scale(.9);
+        color: var(--color-accent);
+        background-color: transparent;
+      }
+    }
+  }
+}

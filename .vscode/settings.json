@@ -1,0 +1,12 @@
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "src/.*",
+                "isAsync": true,
+                "cmd": "./build.sh"
+            }
+        ]
+    },
+    "liveServer.settings.root": "/build"
+}
