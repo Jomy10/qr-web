@@ -18,5 +18,20 @@ observeInsert((node, endCallback) => {
             document.getElementById('download').style.opacity = 100;
         });
     }
+
+    document.getElementById('download').addEventListener('click', () => {
+        download('qr-code-canvas');
+    })
 });
 
+const download = (canvasId) => {
+    let canvas = document.getElementById(canvasId);
+    console.log(canvas);
+    let img = canvas.toDataURL('image/png');
+    console.log(img);
+
+    var anchor = document.createElement('a');
+    anchor.href = img;
+    anchor.download = 'img.png';
+    anchor.click();
+}

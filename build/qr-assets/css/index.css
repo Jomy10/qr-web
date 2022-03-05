@@ -41,8 +41,9 @@ button {
     text-align: center;
     background-color: var(--color-accent);
     border-radius: 5px;
-    padding: .5em;
+    padding: .7em;
     margin-right: 10px;
+    font-weight: 500;
 }
 
 button:active {
