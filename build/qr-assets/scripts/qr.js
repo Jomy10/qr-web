@@ -4,29 +4,36 @@
  * Draws a QR code to the screen
  * @param {number} element_id the canvas to draw to (id)
  * @param {string} text
+ * @param {number} _width the width (and height) of the qr-code
  */
-export const drawQR = (element_id, text) => {
+export const drawQR = (element, text, _width = null) => {
     // Set up canvas and go to top left
-    let canvas = document.getElementById(element_id);
+    let canvas = element;
     let ctx = canvas.getContext("2d");
     ctx.lineWidth = "1";
     
     // Change width and height
     let bezel = convertRem(0.5);
     let padding = 2 * (4.0 * bezel);
-    let canvas_width = document.getElementById('main-content').clientWidth - padding;
-    console.log("width:", canvas_width);
+    let canvas_width = _width == null ? document.getElementById('main-content').clientWidth - padding : _width;
+    console.log("width", canvas_width);
     ctx.canvas.width = canvas_width;
     ctx.canvas.height = canvas_width;
     // ctx.moveTo(0,0)
+
+    // Set input field text if not already set
+    let dimension_field = document.getElementById('dimension-field')
+    if (dimension_field.value === "") {
+        dimension_field.value = canvas_width;
+    }
 
     // calculate box height and width
     let lines = text.split('\n');
     let boxes_h = lines.length;
     let chars_first = Array.from(lines[0]);
     let boxes_w = chars_first.length;
-    let width = canvas.clientWidth
-    let height = canvas.clientHeight;
+    let width = canvas_width;
+    let height = canvas_width;
 
     let box_height = height/boxes_h;
     let box_width = width/boxes_w;
@@ -70,6 +77,6 @@ function getRootElementFontSize() {
 }
 
 /** rem to fload */
-function convertRem(value) {
+export function convertRem(value) {
     return value * getRootElementFontSize();
 }

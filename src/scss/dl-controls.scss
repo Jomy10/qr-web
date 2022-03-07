@@ -1,38 +1,41 @@
-.dl-control-view {
-    --field-width: 30%;
-    --margin-between: 15px;
-    --p-width: 20%;
-    margin-top: 15px;
-    position: relative;
-    // TODO: center p element
-    display:flex;
-    align-items:center;
-    width:100%;
+.controls {
+    margin-top: 30px;
+    display: flex;
 
-    p {
-        float: left;
-        width: var(--p-width);
-        font-weight: bold;  
+    .button-view {
+        min-width: max-content;
+        margin-top: 5px;
+        margin-right: 3px;
     }
 
-    .input_field {
-        width: var(--field-width);
-        float: left;
-    }
-    
-    #input-label-1 {
-        margin-left: calc(var(--p-width) + var(--label-indent));
-    }
+    .dl-control-view {
+        --field-width: 30%;
+        margin-bottom: 20px;
+        position: relative;
+        // TODO: center p element
+        display:flex;
+        align-items:center;
+        width:100%;
 
-    #input-label-2 {
-        margin-left: calc(var(--field-width) + var(--label-indent) + var(--margin-between) + var(--p-width));
-    }
+        .input_field {
+            width: var(--field-width);
+            min-width: 115px;
+        }
+        
+        // #input-label-1 {
+        //     margin-left: calc(var(--p-width) + var(--label-indent));
+        // }
 
-    .input_label {
-        top: -22px;
-    }
+        // #input-label-2 {
+        //     margin-left: calc(var(--field-width) + var(--label-indent) + var(--margin-between) + var(--p-width));
+        // }
 
-    #width-field {
-        margin-right: 15px;
+        .input_label {
+            top: -22px;
+        }
+
+        // #width-field {
+        //     margin-right: 15px;
+        // }
     }
 }

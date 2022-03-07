@@ -1,5 +1,5 @@
 import { addChangeListener, observeInsert } from '/qr-assets/scripts/changeListener.js';
-import { drawQR } from '/qr-assets/scripts/qr.js';
+import { drawQR, convertRem } from '/qr-assets/scripts/qr.js';
 import { addToDOM } from '/qr-assets/scripts/dom.js';
 
 // TODO: show loading icon when button clicked!
@@ -14,24 +14,38 @@ observeInsert((node, endCallback) => {
         endCallback();
         // Listen for cange on #qr-code node and draw when changed
         addChangeListener(document.getElementById('qr-code'), (text) => {
-            drawQR('qr-code-canvas', text);
+            drawQR(document.getElementById('qr-code-canvas'), text);
             let downloadBtn = document.getElementById('download');
-            downloadBtn.style.opacity = 100;
-            downloadBtn.disabled = false;
+            let controls = document.getElementsByClassName('dl-control');
+            [downloadBtn, ...controls].forEach((element) => {
+                element.style.opacity = 100;
+                element.disabled = false;
+            });
         });
     }
 
     document.getElementById('download').addEventListener('click', () => {
-        download('qr-code-canvas');
+
+        let bezel = convertRem(0.5);
+        let padding = 2 * (4.0 * bezel);
+        let canvas_width = document.getElementById('main-content').clientWidth - padding;
+        if (document.getElementById('dimension-field').value != canvas_width) {
+            console.log('Redrawing with new dimensions');
+            let canvas = document.getElementById('qr-code-redraw-canvas');
+            console.log(document.getElementById('qr-code').innerText);
+            drawQR(canvas, document.getElementById('qr-code').innerText, document.getElementById('dimension-field').value);
+            download(canvas)
+        } else {
+            download(document.getElementById('qr-code-canvas'));
+        }
     });
 });
 
-const download = (canvasId) => {
-    let canvas = document.getElementById(canvasId);
+const download = (canvas) => {
     let img = canvas.toDataURL('image/png');
 
     var anchor = document.createElement('a');
     anchor.href = img;
-    anchor.download = 'img.png';
+    anchor.download = 'qr.png';
     anchor.click();
 }
