@@ -15,6 +15,9 @@
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+
+  // TODO: does not work when element is inserted
+  transition: height 100ms ease-in;
   
   *:first-child {
     margin-top: 0;
@@ -64,7 +67,7 @@
 @supports (-webkit-appearance:none) {
     .input {
         &_label {
-
+          // TODO: fix for Safari
         }
     }
 } 

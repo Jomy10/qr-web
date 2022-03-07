@@ -1404,7 +1404,10 @@ end
 # Returns a string containing # on dark spots and ' ' on light spots in a grid
 def create_QR(link)
     qr = RQRCodeCore::QRCode.new(link)
-    qr.to_s(dark: '#', light: ' ')
+    qr_gen = qr.to_s(dark: '#', light: '%')
+    qr_gen.gsub!("\n", "&")
+    puts("qr code: #{qr_gen}")
+    qr_gen
 end
 
 class HelloWorld < Prism::Component
@@ -1453,8 +1456,19 @@ class HelloWorld < Prism::Component
           attrs: {
             id: "qr-code-canvas", 
             width: "500", 
-            height: "500"}
-          })
+            height: "500",
+            style: "opacity: 0%;display:none;"
+          }
+        }),
+        # Will hold the image of the canvas
+        img({
+          attrs: {
+            id: 'qr-code-img',
+            width: '100%',
+            height: '100%',
+            style: "max-width: 650px;margin-left: auto; margin-right: auto;"
+          }
+        })
       ], 
       {
         attrs: {
@@ -1462,15 +1476,7 @@ class HelloWorld < Prism::Component
             id: "main-content"
           }
         }
-      ),
-      canvas({
-        attrs: {
-          id: 'qr-code-redraw-canvas',
-          width: '10',
-          height: '10',
-          #style: 'style: 35%'
-        }
-      })
+      )
     ])
   end
 end

@@ -15,43 +15,32 @@ export const drawQR = (element, text, _width = null) => {
     // Change width and height
     let bezel = convertRem(0.5);
     let padding = 2 * (4.0 * bezel);
-    let canvas_width = _width == null ? document.getElementById('main-content').clientWidth - padding : _width;
-    console.log("width", canvas_width);
+    console.log(_width);
+    let canvas_width = (_width == null || isNaN(_width) || _width === "") ? parseInt(document.getElementById('main-content').clientWidth - padding) : parseInt(_width);
     ctx.canvas.width = canvas_width;
     ctx.canvas.height = canvas_width;
-    // ctx.moveTo(0,0)
 
     // Set input field text if not already set
     let dimension_field = document.getElementById('dimension-field')
-    if (dimension_field.value === "") {
-        dimension_field.value = canvas_width;
-    }
+    if (dimension_field.value === "") { dimension_field.value = canvas_width; }
 
     // calculate box height and width
-    let lines = text.split('\n');
+    let lines = text.split('&');
     let boxes_h = lines.length;
     let chars_first = Array.from(lines[0]);
     let boxes_w = chars_first.length;
-    let width = canvas_width;
-    let height = canvas_width;
 
-    let box_height = height/boxes_h;
-    let box_width = width/boxes_w;
+    let box_height = parseInt(canvas_width/boxes_h);
+    let box_width = parseInt(canvas_width/boxes_w);
 
     // Keep track of current position
     let x = 0;
     let y = 0;
 
-    // Clear canvas
-    // ctx.beginPath();
-    // ctx.fillStyle = "white";
-    // ctx.rect(0, 0, width, height);
-    // ctx.fill();
-
     // Draw QR code
     lines.forEach((line) => {
         Array.from(line).forEach((char) => {
-            if (char == " ") {
+            if (char == "%") {
                 ctx.beginPath();
                 ctx.fillStyle = "white";
                 ctx.rect(x, y, box_width + 1, box_height + 1);

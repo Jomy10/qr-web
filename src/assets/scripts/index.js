@@ -14,7 +14,9 @@ observeInsert((node, endCallback) => {
         endCallback();
         // Listen for cange on #qr-code node and draw when changed
         addChangeListener(document.getElementById('qr-code'), (text) => {
-            drawQR(document.getElementById('qr-code-canvas'), text);
+            let canvas = document.getElementById('qr-code-canvas');
+            drawQR(canvas, text);
+            setImage(canvas);
             let downloadBtn = document.getElementById('download');
             let controls = document.getElementsByClassName('dl-control');
             [downloadBtn, ...controls].forEach((element) => {
@@ -25,14 +27,12 @@ observeInsert((node, endCallback) => {
     }
 
     document.getElementById('download').addEventListener('click', () => {
+        let canvas = document.getElementById('qr-code-canvas');
 
         let bezel = convertRem(0.5);
         let padding = 2 * (4.0 * bezel);
         let canvas_width = document.getElementById('main-content').clientWidth - padding;
         if (document.getElementById('dimension-field').value != canvas_width) {
-            console.log('Redrawing with new dimensions');
-            let canvas = document.getElementById('qr-code-redraw-canvas');
-            console.log(document.getElementById('qr-code').innerText);
             drawQR(canvas, document.getElementById('qr-code').innerText, document.getElementById('dimension-field').value);
             download(canvas)
         } else {
@@ -48,4 +48,9 @@ const download = (canvas) => {
     anchor.href = img;
     anchor.download = 'qr.png';
     anchor.click();
+}
+
+const setImage = (canvas) => {
+    let img = canvas.toDataURL();
+    document.getElementById('qr-code-img').src = img;
 }
