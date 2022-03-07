@@ -55,4 +55,15 @@
   background-color: transparent;
 }
 
+/*Fix for Safari (TODO: find a better fix)*/
+@supports (-webkit-appearance: none) {
+  .input_label:not(.dl-control) {
+    margin-top: -49px;
+  }
+
+  .dl-control {
+    margin-top: 5px;
+  }
+}
+
 /*# sourceMappingURL=card+input.css.map */

@@ -64,10 +64,14 @@
   }
 }
 
+/*Fix for Safari (TODO: find a better fix)*/
 @supports (-webkit-appearance:none) {
     .input {
-        &_label {
-          // TODO: fix for Safari
+        &_label:not(.dl-control) {
+          margin-top: -49px;
         }
+    }
+    .dl-control {
+      margin-top: 5px;
     }
 } 
