@@ -32,3 +32,23 @@
         }
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .controls {
+        display: contents;
+
+        .button-view {
+            margin-top: 10px;
+        }
+
+        .button-view {
+            margin-bottom: 27px;
+        }
+
+        .dl-control-view {
+            .input_field {
+                min-width: 140px;
+            }
+        }
+    }
+}

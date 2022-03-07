@@ -37,6 +37,7 @@ h1 {
     font-size: 3rem;
     line-height: 1.4;
     text-align: center;
+    margin-bottom: 15px;
 }
 
 button {
@@ -80,4 +81,10 @@ canvas.qr-code-canvas {
 #loading-icon path,
 #loading-icon rect{
   fill: var(--color-accent);
+}
+
+@media only screen and (max-width: 600px) {
+    :root {
+        font-size: 1.2em;
+    }
 }

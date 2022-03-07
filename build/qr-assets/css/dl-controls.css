@@ -27,4 +27,19 @@
   top: -20px;
 }
 
+@media only screen and (max-width: 600px) {
+  .controls {
+    display: contents;
+  }
+  .controls .button-view {
+    margin-top: 10px;
+  }
+  .controls .button-view {
+    margin-bottom: 27px;
+  }
+  .controls .dl-control-view .input_field {
+    min-width: 140px;
+  }
+}
+
 /*# sourceMappingURL=dl-controls.css.map */
