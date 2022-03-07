@@ -1,1 +1,2 @@
 build/** linguist-generated=true
+src/rb/rqrcode_core.rb linguist-generated=true
