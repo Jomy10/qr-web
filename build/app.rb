@@ -1466,7 +1466,8 @@ class HelloWorld < Prism::Component
             id: 'qr-code-img',
             width: '100%',
             height: '100%',
-            style: "max-width: 650px;margin-left: auto; margin-right: auto;"
+            # TODO: #4 center image
+            style: "max-width: 650px; margin-left: auto; margin-right: auto;"
           }
         })
       ], 
