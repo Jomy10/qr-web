@@ -1,3 +1,5 @@
+import { startAnimation } from "/qr-assets/scripts/loading.js";
+
 /**
  * Add to DOM what ruby can't do
  */
@@ -10,7 +12,7 @@ export const addToDOM = () => {
     icon.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
     icon.setAttribute('xml:space', 'preserve');
 
-    document.getElementsByClassName('generate')[0].addEventListener('click', () => {
-        console.log("click")
-    });
+    document.getElementById('generate-parent').addEventListener('click', () => {
+        startAnimation();
+    }, true);
 }

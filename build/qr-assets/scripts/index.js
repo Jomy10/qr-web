@@ -1,6 +1,7 @@
 import { addChangeListener, observeInsert } from '/qr-assets/scripts/changeListener.js';
 import { drawQR, convertRem } from '/qr-assets/scripts/qr.js';
 import { addToDOM } from '/qr-assets/scripts/dom.js';
+import { stopAnimation } from '/qr-assets/scripts/loading.js';
 
 // TODO: show loading icon when button clicked!
 
@@ -14,6 +15,7 @@ observeInsert((node, endCallback) => {
         endCallback();
         // Listen for cange on #qr-code node and draw when changed
         addChangeListener(document.getElementById('qr-code'), (text) => {
+            stopAnimation();
             let canvas = document.getElementById('qr-code-canvas');
             drawQR(canvas, text);
             setImage(canvas);

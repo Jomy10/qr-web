@@ -7,6 +7,10 @@
         min-width: max-content;
         margin-top: 5px;
         margin-right: 3px;
+
+        #generate-parent {
+            float: left;
+        }
     }
 
     .dl-control-view {
@@ -14,29 +18,17 @@
         margin-bottom: 20px;
         position: relative;
         // TODO: center p element
-        display:flex;
-        align-items:center;
-        width:100%;
+        display: flex;
+        align-items: center;
+        width: 100%;
 
         .input_field {
             width: var(--field-width);
             min-width: 115px;
         }
-        
-        // #input-label-1 {
-        //     margin-left: calc(var(--p-width) + var(--label-indent));
-        // }
-
-        // #input-label-2 {
-        //     margin-left: calc(var(--field-width) + var(--label-indent) + var(--margin-between) + var(--p-width));
-        // }
 
         .input_label {
-            top: -22px;
+            top: -20px;
         }
-
-        // #width-field {
-        //     margin-right: 15px;
-        // }
     }
 }

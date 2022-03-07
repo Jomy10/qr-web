@@ -1,11 +1,3 @@
-/*
-.input-label, .input-field {
-    display: inline-block;
-}
-.input-label {
-    margin-right: 15px;
-}
-*/
 :root {
     --color-light: white;
     --color-dark: #212121;
@@ -63,7 +55,7 @@ canvas.qr-code-canvas {
 #loading-icon {
     position: absolute;
     z-index: 2;
-    margin-top: 20px;
+    margin-top: -25px;
     /*Center icon*/
     left: 0;
     right: 0;

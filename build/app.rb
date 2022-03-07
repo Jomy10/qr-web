@@ -1411,19 +1411,10 @@ def create_QR(link)
 end
 
 class HelloWorld < Prism::Component
-  attr_accessor :url, :qr_code, :status
+  attr_accessor :url, :qr_code
 
   def initialize()
     @url = ""
-    @status = ""
-  end
-
-  def gen_qr
-    @status = "loading"
-    thr = Thread.new {
-    qr()
-    }
-    thr.join
   end
 
   def qr
@@ -1435,10 +1426,14 @@ class HelloWorld < Prism::Component
   def controls
     div('.controls', [
       div(".button-view", [
-        button('.generate', {:onclick => call(:gen_qr)}, [text("Generate QR code")]),
+        div([
+          button('.generate', {:onclick => call(:qr)}, [text("Generate QR code")]),
+        ], {
+        attrs: {
+          id: 'generate-parent'
+        }}),
         button("Download", {attrs: {id: "download", style: "opacity: 0%;", disabled: "true"}}),
       ]),
-      p("status: #{status}"),
       div(".dl-control-view", [
         input('.input_field .dl-control', {
           attrs: {
@@ -1467,14 +1462,14 @@ class HelloWorld < Prism::Component
       fill: '#333'
     }}, [
       animateTransform({attrs: {
+        class: 'load-rect',
         attributeType: 'xml',
         attributeName: 'transform',
         type: 'translate',
         values: '0 0; 0 20; 0 0',
         begin: _begin,
-        dur: '0.6s',
-        # set to indefinite when loading
-        repeatCount: '1'
+        dur: '0.8s',
+        repeatCount: 'indefinite'
       }})
     ])
   end
@@ -1496,7 +1491,14 @@ class HelloWorld < Prism::Component
         loadingRect('10', '0.2s'),
         loadingRect('20', '0.4s')
       ])
-    ])
+    ], {attrs: {
+      style: 'opacity: 0%;',
+      id: 'loader'
+    }})
+  end
+
+  def loadingIndicatorCss
+    div('.load', Array.new(3, div('.line')))
   end
 
   def render
