@@ -12,6 +12,8 @@ Using the [Run on save](https://marketplace.visualstudio.com/items?itemName=emer
 
 [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) is set up to serve files in the `build` directory. 
 
+You will need to have **SASS** installed to run the build script: [sass-lang.com/install](https://sass-lang.com/install)
+
 ## Contributing
 Feel free to open issues for any reason.
 
