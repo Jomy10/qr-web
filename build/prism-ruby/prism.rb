@@ -142,6 +142,9 @@ module Prism
       u
       ul
       video
+      svg
+      rect
+      animateTransform
     ]
 
     TAG_NAMES.each do |tag|

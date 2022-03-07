@@ -59,3 +59,23 @@ button.download {
 canvas.qr-code-canvas {
     margin: 0;
 }
+
+#loading-icon {
+    position: absolute;
+    z-index: 2;
+    margin-top: 20px;
+    /*Center icon*/
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#qr-code-img {
+    position: relative;
+}
+
+#loading-icon path,
+#loading-icon rect{
+  fill: var(--color-accent);
+}
