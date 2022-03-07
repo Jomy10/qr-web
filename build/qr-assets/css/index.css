@@ -23,6 +23,11 @@
     color: var(--color-text);
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 #qr-code {
     opacity: 0%;
     position: absolute;
@@ -81,10 +86,4 @@ canvas.qr-code-canvas {
 #loading-icon path,
 #loading-icon rect{
   fill: var(--color-accent);
-}
-
-@media only screen and (max-width: 600px) {
-    :root {
-        font-size: 1.2em;
-    }
 }
