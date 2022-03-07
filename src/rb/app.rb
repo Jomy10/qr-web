@@ -25,7 +25,10 @@ class HelloWorld < Prism::Component
         ]),
         div(".dl-control-view", [
           p("Dimensions:"),
-          input('.input_field .dl-control', {attrs: {id: 'width-field'}}),#, {attrs: {id: 'width-field', style: "opacity: 0%;"}}),
+          input('.input_field .dl-control', {attrs: {
+              id: 'width-field'
+            }}
+          ),#, {attrs: {id: 'width-field', style: "opacity: 0%;"}}),
           span('.input_label .dl-control', "width", {attrs: {id: "input-label-1"}}),#, {attrs: {style: "opacity: 0%;"}}),
           input('.input_field .dl-control'),#, {attrs: {id: 'height-field', style: "opacity: 0%;"}}),
           span('.input_label .dl-control', "height", {attrs: {id: "input-label-2"}}),#, {attrs: {style: "opacity: 0%;"}}),
