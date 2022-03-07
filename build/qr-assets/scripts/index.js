@@ -15,20 +15,20 @@ observeInsert((node, endCallback) => {
         // Listen for cange on #qr-code node and draw when changed
         addChangeListener(document.getElementById('qr-code'), (text) => {
             drawQR('qr-code-canvas', text);
-            document.getElementById('download').style.opacity = 100;
+            let downloadBtn = document.getElementById('download');
+            downloadBtn.style.opacity = 100;
+            downloadBtn.disabled = false;
         });
     }
 
     document.getElementById('download').addEventListener('click', () => {
         download('qr-code-canvas');
-    })
+    });
 });
 
 const download = (canvasId) => {
     let canvas = document.getElementById(canvasId);
-    console.log(canvas);
     let img = canvas.toDataURL('image/png');
-    console.log(img);
 
     var anchor = document.createElement('a');
     anchor.href = img;

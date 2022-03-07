@@ -16,5 +16,6 @@ rm -r build/qr-assets
 cp -r src/assets build/qr-assets
 
 sass "src/scss/card+input.scss" "build/qr-assets/css/card+input.css"
+sass "src/scss/dl-controls.scss" "build/qr-assets/css/dl-controls.css"
 
 cp src/index.html build/index.html

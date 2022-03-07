@@ -1,16 +1,13 @@
 class HelloWorld < Prism::Component
-  attr_accessor :url, :qr_code, :status
+  attr_accessor :url, :qr_code
 
   def initialize()
     @url = ""
-    @status = ""
   end
 
   def qr
-    puts "Generating QR code"
-    @status = "Generating"
+    puts "Generating QR code" 
     @qr_code = create_QR(@url)
-    @status = "Generated!"
     # puts "Generated:\n#{@qr_code}"
   end
 
@@ -24,9 +21,16 @@ class HelloWorld < Prism::Component
         ]),
         div(".button-view", [
           button('.generate', {:onclick => call(:qr)}, [text("Generate QR code")]),
-          button("Download", {attrs: {id: "download", style: "opacity: 0%;"}}),
+          button("Download", {attrs: {id: "download", style: "opacity: 0%;", disabled: "true"}}),
         ]),
-        p(".status", "#{status}"),
+        div(".dl-control-view", [
+          p("Dimensions:"),
+          input('.input_field .dl-control', {attrs: {id: 'width-field'}}),#, {attrs: {id: 'width-field', style: "opacity: 0%;"}}),
+          span('.input_label .dl-control', "width", {attrs: {id: "input-label-1"}}),#, {attrs: {style: "opacity: 0%;"}}),
+          input('.input_field .dl-control'),#, {attrs: {id: 'height-field', style: "opacity: 0%;"}}),
+          span('.input_label .dl-control', "height", {attrs: {id: "input-label-2"}}),#, {attrs: {style: "opacity: 0%;"}}),
+        ]),
+        # p(".status", "#{status}"),
         p("#{qr_code}", {attrs: {id: "qr-code"}}),
         canvas({attrs: {id: "qr-code-canvas", width: "500", height: "500"}})
       ], {attrs: {class: 'card', id: "main-content"}})

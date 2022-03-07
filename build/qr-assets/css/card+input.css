@@ -12,16 +12,6 @@
   border: 3px solid var(--color-shadow, currentColor);
   box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
 }
-.card--inverted {
-  --color-background-card: var(--color-dark);
-  color: var(--color-light);
-  --color-shadow: var(--color-accent);
-}
-.card--accent {
-  --color-background-card: var(--color-signal);
-  --color-accent: var(--color-light);
-  color: var(--color-dark);
-}
 .card *:first-child {
   margin-top: 0;
 }
@@ -31,7 +21,7 @@
 }
 .input_label {
   position: absolute;
-  left: 3px;
+  left: var(--label-indent);
   top: -8px;
   padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
   margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);

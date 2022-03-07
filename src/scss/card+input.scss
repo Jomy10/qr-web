@@ -3,10 +3,6 @@
 :root {  
   --size-bezel: .5rem;
   --size-radius: 4px;
-
-  // font-size: calc(.6rem + .4vw);
-  // font-weight: 300;
-  // padding: 0 calc(var(--size-bezel) * 3);
 }
 .card {
   background: var(--color-background-card);
@@ -15,18 +11,6 @@
   border-radius: var(--size-radius);
   border: 3px solid var(--color-shadow, currentColor);
   box-shadow: .5rem .5rem 0 var(--color-shadow, currentColor);
-  
-  &--inverted {
-    --color-background-card: var(--color-dark);
-    color: var(--color-light);
-    --color-shadow: var(--color-accent);
-  }
-  
-  &--accent {
-    --color-background-card: var(--color-signal);
-    --color-accent: var(--color-light);
-    color: var(--color-dark);
-  }
   
   *:first-child {
     margin-top: 0;
@@ -38,7 +22,7 @@
   
   &_label {
     position: absolute;
-    left: 3px;
+    left: var(--label-indent);
     top: -8px;
     padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
     margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
@@ -72,3 +56,11 @@
     }
   }
 }
+
+@supports (-webkit-appearance:none) {
+    .input {
+        &_label {
+
+        }
+    }
+} 

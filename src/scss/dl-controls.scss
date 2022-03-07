@@ -1,0 +1,39 @@
+.dl-control-view {
+    --field-width: 30%;
+    --margin-between: 15px;
+    --p-width: 20%;
+    margin-top: 15px;
+    position: relative;
+    // TODO: center p element
+    display:flex;
+    align-items:center;
+    width:100%;
+
+    p {
+        float: left;
+        width: var(--p-width);
+        font-weight: bold;
+
+    }
+
+    .input_field {
+        width: var(--field-width);
+        float: left;
+    }
+    
+    #input-label-1 {
+        margin-left: calc(var(--p-width) + var(--label-indent));
+    }
+
+    #input-label-2 {
+        margin-left: calc(var(--field-width) + var(--label-indent) + var(--margin-between) + var(--p-width));
+    }
+
+    .input_label {
+        top: -22px;
+    }
+
+    #width-field {
+        margin-right: 15px;
+    }
+}
