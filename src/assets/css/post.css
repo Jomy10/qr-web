@@ -1,0 +1,12 @@
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) {
+
+    .input_label:not(.dl-control) {
+        margin-top: -49px;
+    }
+    .dl-control {
+      margin-top: 5px;
+    }
+}}
+
+/*Fix for Safari (TODO: find a better fix)*/
