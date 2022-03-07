@@ -9,8 +9,6 @@ for f in $files; do
     (cat "${f}"; echo) >> build/app.rb;
 done
 
-# cp app.rb build/app.rb
-
 # Copy asset files
 rm -r build/qr-assets
 cp -r src/assets build/qr-assets
