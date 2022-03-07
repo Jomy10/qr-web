@@ -1,7 +1,7 @@
 # qr-web
 A website for making QR codes writen in Ruby (running on WebAssembly) and javascript. Build on Prism and RQRCode_Core.
 
-**The website will be published in a few days, the project is still under construction.**
+[Visit the website](https://qr.jonaseveraert.be)
 
 ## Development
 This project has a development environment set up in VSCode.
