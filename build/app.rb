@@ -1497,10 +1497,6 @@ class HelloWorld < Prism::Component
     }})
   end
 
-  def loadingIndicatorCss
-    div('.load', Array.new(3, div('.line')))
-  end
-
   def render
     div(".app", [
       main([
