@@ -6,7 +6,7 @@ A website for making QR codes writen in Ruby (running on WebAssembly) and javasc
 ## Development
 This project has a development environment set up in VSCode.
 
-All source files exist in the `src` directory. Files in the `build` directory should never be touhed.
+All source files exist in the `src` directory. Files in the `build` directory should never be touched.
 
 Using the [Run on save](https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave) extension, `build.sh` is executeed whenever a file inside of the `src` directory is edited and all the necessary files are (build and) copied to the `build` directory. (Not the most efficient, but this is ok for a small project).
 
