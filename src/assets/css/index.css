@@ -40,6 +40,7 @@ body {
 
 .app {
     margin: 20px 10%;
+    overflow-x: hidden;
 }
 
 h1 {
