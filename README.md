@@ -14,6 +14,8 @@ Using the [Run on save](https://marketplace.visualstudio.com/items?itemName=emer
 
 You will need to have **SASS** installed to run the build script: [sass-lang.com/install](https://sass-lang.com/install)
 
+**NOTE**: When you open a pull request, Netlify will generate a preview site. If you did not run the the `build.sh` script before pushing your changes, the preview will not reflect your changes. (If anyone has experience with netlify build commands, let me know).
+
 ## Contributing
 Feel free to open issues for any reason.
 
