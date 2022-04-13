@@ -108,7 +108,8 @@ class HelloWorld < Prism::Component
         img({
           attrs: {
             id: 'qr-code-img',
-            width: '100%',
+            display: block;
+            width: '50%',
             height: '100%',
             # TODO: #4 center image
             style: "max-width: 650px; margin-left: auto; margin-right: auto;"
